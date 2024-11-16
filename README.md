@@ -12,34 +12,30 @@ Este proyecto es una **API RESTful** diseñada para la gestión de usuarios, hab
 - **Lombok** para reducir el código repetitivo
 - **Maven** para la gestión de dependencias
 
-## Descripción de las Operaciones CRUD
 
-### 1. Gestión de Usuarios
+### Resumen de lo añadido:
 
-#### **GET /api/usuarios/**
-Obtiene todos los usuarios registrados.
+- **Operaciones CRUD** completas para **Usuarios**, **Habitaciones** y **Reservas**.
+- **Roles de seguridad** con **Spring Security**: Diferenciación entre **Admin** y **User**.
+- Configuración para conectar con una base de datos **MySQL**.
+- Guía de cómo ejecutar el proyecto, con configuración de Maven y Spring Boot.
 
-- **Respuesta**: Lista con todos los usuarios en la base de datos.
 
-#### **GET /api/usuarios/{id}**
-Obtiene un usuario por su ID.
+## Seguridad y Roles de Usuario
+La aplicación está protegida con Spring Security. Los usuarios se pueden autenticar con el sistema, y el acceso a algunos endpoints está restringido según el rol del usuario. Los roles son los siguientes:
 
-- **Parámetro**: `id` (ID del usuario)
-- **Respuesta**: Detalles del usuario especificado o un error 404 si no existe.
+- **Admin**: Tiene acceso completo a todos los endpoints de la API, incluyendo la creación y eliminación de usuarios, habitaciones y reservas.
+- **User**: Puede acceder solo a ciertos endpoints, como obtener información sobre habitaciones y realizar reservas, pero no puede eliminar o crear nuevos recursos.
+### Roles y Autenticación
+- **Admin**: Usuario con permisos completos para gestionar todos los recursos del sistema.
+- **User**: Usuario regular que puede consultar recursos como habitaciones y realizar reservas.
+**Los usuarios pueden autenticarse utilizando las credenciales en formato Basic Authentication (usuario y contraseña). Por ejemplo:
 
-#### **POST /api/usuarios/registrar**
-Registra un nuevo usuario.
+Username: admin@hotel.com
+Password: admin123
+O también puedes crear tu propio usuario utilizando el endpoint /api/usuarios/registrar.
 
-- **Cuerpo de la solicitud (JSON)**:
-  ```json
-  {
-    "email": "usuario@ejemplo.com",
-    "password": "contraseña123",
-    "rolesIds": [1, 2]
-  }
-  - ** Respuesta
-   {
-  "message": "Usuario registrado con éxito."
-  }
+Base de Datos
+El proyecto utiliza MySQL como base de datos persistente. Para conectar tu base de datos, debes configurar las credenciales en el archivo src/main/resources/application.properties.
   
 
