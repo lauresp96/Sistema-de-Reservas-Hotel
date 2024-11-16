@@ -18,7 +18,6 @@ Este proyecto es una **API RESTful** diseñada para la gestión de usuarios, hab
 - **Operaciones CRUD** completas para **Usuarios**, **Habitaciones** y **Reservas**.
 - **Roles de seguridad** con **Spring Security**: Diferenciación entre **Admin** y **User**.
 - Configuración para conectar con una base de datos **MySQL**.
-- Guía de cómo ejecutar el proyecto, con configuración de Maven y Spring Boot.
 
 
 ## Seguridad y Roles de Usuario
